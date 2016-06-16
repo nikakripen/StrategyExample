@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Strategy
 {
@@ -10,68 +6,60 @@ namespace Strategy
     {
         static void Main(string[] args)
         {
-            String key = "key";
-            String text = "text";
-            Encryption encryption = new Encryption(new DESAlgorithm());
-            String cryptedText = encryption.crypt(text, key);
+            string key = "key";
+            string text = "text";
+            var encryption = new Encryption(new DesAlgorithm());
+            string cryptedText = encryption.Crypt(text, key);
 
             Console.WriteLine(cryptedText);
 
-            encryption.Algorithm = new RSAAlgorythm();
-            cryptedText = encryption.crypt(text, key);
+            encryption.SetAlgorithm( new RsaAlgorythm());
+            cryptedText = encryption.Crypt(text, key);
 
             Console.WriteLine(cryptedText);
         }    
     }
 
-    public interface Algorithm
+    public interface IAlgorithm
     {
-        String crypt(String text, String key);
+        String Crypt(string text, string key);
     }
 
-    public class DESAlgorithm : Algorithm
+    public class DesAlgorithm : IAlgorithm
     {
-        public String crypt(String text, String key)
+        public string Crypt(string text, string key)
         {
-            String cryptedString = null;
-            // тело алгоритма
-
-            cryptedString = "I encripted by DES";
+            string cryptedString = "I encripted by DES";
             return cryptedString;
         }
     }
 
-    public class RSAAlgorythm : Algorithm
+    public class RsaAlgorythm : IAlgorithm
     {
-        public String crypt(String text, String key)
+        public string Crypt(string text, string key)
         {
-            String cryptedString = null;
-            // тело алгоритма
-            cryptedString = "I encripted by RSA";
+            string cryptedString = "I encripted by RSA";
                 return cryptedString;
         }
     }
 
     public class Encryption
     {
-        private Algorithm algorithm;
+        private IAlgorithm _algorithm;
 
-        public Encryption(Algorithm algorithm)
+        public Encryption(IAlgorithm algorithm)
         {
-            this.algorithm = algorithm;
+            _algorithm = algorithm;
         }
 
-        public Algorithm Algorithm
+        public void SetAlgorithm(IAlgorithm algorithm)
         {
-            set
-            {
-                this.algorithm = value;
-            }
+            _algorithm = algorithm;
         }
 
-        public string crypt(String text, String key)
+        public string Crypt(string text, string key)
         {
-            return algorithm.crypt(text, key);
+            return _algorithm.Crypt(text, key);
         }
     }
 }
