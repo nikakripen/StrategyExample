@@ -36,7 +36,7 @@ namespace Strategy
             String cryptedString = null;
             // тело алгоритма
 
-            cryptedString = "I'm cripted by DES";
+            cryptedString = "I encripted by DES";
             return cryptedString;
         }
     }
@@ -47,7 +47,7 @@ namespace Strategy
         {
             String cryptedString = null;
             // тело алгоритма
-            cryptedString = "I'm cripted by RSA";
+            cryptedString = "I encripted by RSA";
                 return cryptedString;
         }
     }
