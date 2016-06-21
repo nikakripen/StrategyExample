@@ -21,7 +21,6 @@ namespace Observer
         public void Update(float data)
         {
             _data = data;
-            
             Display();
         }
 
@@ -52,11 +51,6 @@ namespace Observer
         {
             Console.WriteLine("Save Temperature {0}", _data);
         }
-
-        public List<float> GetDataList()
-        {
-            return new List<float>();
-        } 
     }
 
     class Notification : IObserver<float>
