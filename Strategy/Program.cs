@@ -13,7 +13,7 @@ namespace Strategy
 
             Console.WriteLine(cryptedText);
 
-            encryption.SetAlgorithm( new RsaAlgorythm());
+            encryption.SetAlgorithm( new RsaAlgorithm());
             cryptedText = encryption.Crypt(text, key);
 
             Console.WriteLine(cryptedText);
@@ -34,7 +34,7 @@ namespace Strategy
         }
     }
 
-    public class RsaAlgorythm : IAlgorithm
+    public class RsaAlgorithm : IAlgorithm
     {
         public string Crypt(string text, string key)
         {
