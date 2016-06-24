@@ -19,8 +19,10 @@ namespace NewObserver
         public IDisposable Subscribe(IObserver<float> observer)
         {
             if (!_observers.Contains(observer))
+            {
                 _observers.Add(observer);
-            return new Unsubscriber(_observers, observer);
+            }
+            return new Unsubscriber(this, observer);
         }
 
         private class Unsubscriber : IDisposable
@@ -28,9 +30,9 @@ namespace NewObserver
             private List<IObserver<float>> _observers;
             private IObserver<float> _observer;
 
-            public Unsubscriber(List<IObserver<float>> observers, IObserver<float> observer)
+            public Unsubscriber(ConcreteSubject subjest, IObserver<float> observer)
             {
-                this._observers = observers;
+                this._observers = subjest._observers;
                 this._observer = observer;
             }
 

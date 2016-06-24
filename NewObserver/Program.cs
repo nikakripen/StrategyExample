@@ -17,6 +17,9 @@ namespace NewObserver
             subject.SetMeasurements(31.4f);
             subject.SetMeasurements(30);
             subject.SetMeasurements(31.2f);
+
+            chart.Unsubscribe();
+            notification.Unsubscribe();
         }
     }
 }
