@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Observer
+namespace NewObserver
 {
     class ConcreteSubject : IObservable<float>
     {
@@ -41,20 +41,23 @@ namespace Observer
             }
         }
 
-        public void RemoveObserver(IObserver<float> observer)
-        {
-            int i = _observers.IndexOf(observer);
-            if (i >= 0)
-            {
-                _observers.Remove(observer);
-            }
-        }
+        //public void RemoveObserver(IObserver<float> observer)
+        //{
+        //    int i = _observers.IndexOf(observer);
+        //    if (i >= 0)
+        //    {
+        //        _observers.Remove(observer);
+        //    }
+        //}
 
         public void NotifyObservers()
         {
             foreach (IObserver<float> observer in _observers)
             {
-                observer.Update(_data);
+                if (_data < 0)
+                    observer.OnError(new Exception("Temperature sensor crashed! Temperature is " + _data));
+                else
+                    observer.OnNext(_data);
             }
         }
 

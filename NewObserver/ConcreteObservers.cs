@@ -5,23 +5,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Observer
+namespace NewObserver
 {
     class Chart : IObserver<float>
     {
         private float _data;
-        public ConcreteSubject Subject;
+        private IDisposable _unsubscriber;
 
-        public Chart(ConcreteSubject subject)
+        public virtual void OnCompleted()
         {
-            Subject = subject;
-            Subject.RegisterObserver(this);
+            Console.WriteLine("The Temperature Tracker has completed transmitting data");
+            this.Unsubscribe();
         }
 
-        public void Update(float data)
+        public virtual void OnError(Exception e)
         {
-            _data = data;
+            Console.WriteLine(e.Message);
+        }
+
+        public virtual void OnNext(float value)
+        {
+            _data = value;
             Display();
+        }
+
+        public virtual void Unsubscribe()
+        {
+            _unsubscriber.Dispose();
+        }
+
+        public Chart(IObservable<float> subject)
+        {
+            if (subject != null)
+                _unsubscriber = subject.Subscribe(this);
         }
 
         public void Display()
@@ -33,18 +49,34 @@ namespace Observer
     class Store : IObserver<float>
     {
         private float _data;
-        public ConcreteSubject Subject;
+        private IDisposable _unsubscriber;
+
+        public virtual void OnCompleted()
+        {
+            Console.WriteLine("The Temperature Tracker has completed transmitting data");
+            this.Unsubscribe();
+        }
+
+        public virtual void OnError(Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        public virtual void OnNext(float value)
+        {
+            _data = value;
+            SaveData();
+        }
+
+        public virtual void Unsubscribe()
+        {
+            _unsubscriber.Dispose();
+        }
 
         public Store(ConcreteSubject subject)
         {
-            Subject = subject;
-            Subject.RegisterObserver(this);
-        }
-
-        public void Update(float data)
-        {
-            _data = data;
-            SaveData();
+            if (subject != null)
+                _unsubscriber = subject.Subscribe(this);
         }
 
         public void SaveData()
@@ -56,21 +88,34 @@ namespace Observer
     class Notification : IObserver<float>
     {
         private float _data;
+        private IDisposable _unsubscriber;
 
-        public ConcreteSubject Subject;
+        public virtual void OnCompleted()
+        {
+            Console.WriteLine("The Temperature Tracker has completed transmitting data");
+            this.Unsubscribe();
+        }
 
-        public List<string> Emails { get; set; }
+        public virtual void OnError(Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+
+        public virtual void OnNext(float value)
+        {
+            _data = value;
+            Notify();
+        }
+
+        public virtual void Unsubscribe()
+        {
+            _unsubscriber.Dispose();
+        }
 
         public Notification(ConcreteSubject subject)
         {
-            Subject = subject;
-            Subject.RegisterObserver(this);
-        }
-
-        public void Update(float data)
-        {
-            _data = data;
-            Notify();
+            if (subject != null)
+                _unsubscriber = subject.Subscribe(this);
         }
 
         public void Notify()
