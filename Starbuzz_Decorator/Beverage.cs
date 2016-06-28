@@ -28,6 +28,11 @@ namespace Starbuzz_Decorator
     public abstract class CondimentDecorator : Beverage
     {
         protected Beverage Beverage;
+
+        protected CondimentDecorator(Beverage beverage)
+        {
+            Beverage = beverage;
+        }
         //public string Description { get; }
     }
 }

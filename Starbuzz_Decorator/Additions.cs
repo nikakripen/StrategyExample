@@ -8,11 +8,11 @@ namespace Starbuzz_Decorator
 {
     public class Mocha : CondimentDecorator
     {
-        public Mocha(Beverage beverage)
+        public Mocha(Beverage beverage) : base(beverage)
         {
-            this.Beverage = beverage;
+            
         }
-
+        
         public override string Description
         {
             get
@@ -29,11 +29,9 @@ namespace Starbuzz_Decorator
 
     public class Soy : CondimentDecorator
     {
-        
-
-        public Soy(Beverage beverage)
+        public Soy(Beverage beverage) : base(beverage)
         {
-            this.Beverage = beverage;
+            
         }
 
         public override string Description
@@ -52,11 +50,9 @@ namespace Starbuzz_Decorator
 
     public class Whip : CondimentDecorator
     {
-        
-
-        public Whip(Beverage beverage)
+        public Whip(Beverage beverage) :  base(beverage)
         {
-            this.Beverage = beverage;
+            
         }
 
         public override string Description
