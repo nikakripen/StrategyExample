@@ -10,13 +10,13 @@ namespace AbstractFactory
     {
         static void Main(string[] args)
         {
-            //creating an instance of a confectionery shop     
-            var confectionery = new CityCenterConfectionery();
+            SweetShop onlineShop = new OnlineSweetShop();
+            SweetShop victoriaShop = new ViktoriaSweetShop();
 
-            //order sweets from the city center confectionery shop
-            Console.WriteLine(confectionery.MakeCake().Name);
-            confectionery.MakeMuffins(7).ForEach((m) => Console.WriteLine(m.Name));
-            confectionery.MakeProfiteroles(5).ForEach((p) => Console.WriteLine(p.Name));
+            Set set1 = onlineShop.OrderSet("big birthday set");
+            Console.WriteLine(set1.ToString());
+            Set set2 = victoriaShop.OrderSet("small tea set");
+            Console.WriteLine(set2.ToString());
 
         }
     }

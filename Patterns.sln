@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewObserver", "NewObserver\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbuzz_Decorator", "Starbuzz_Decorator\Starbuzz_Decorator.csproj", "{BD443A26-4FE6-4FD7-9C84-51752646BC12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractFactory", "Factory_Cakes\AbstractFactory\AbstractFactory.csproj", "{92BC0D7C-47C4-41FB-93F5-E434F9475F9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractFactoryAndFactoryMethod", "Factory_Cakes\AbstractFactory\AbstractFactoryAndFactoryMethod.csproj", "{92BC0D7C-47C4-41FB-93F5-E434F9475F9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

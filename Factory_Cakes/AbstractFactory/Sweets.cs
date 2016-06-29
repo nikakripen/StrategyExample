@@ -28,6 +28,13 @@ namespace AbstractFactory
             Name = name;
         }
     }
+    class Cheesecake : Cake
+    {
+        public Cheesecake(string name)
+        {
+            Name = name;
+        }
+    }
     class ChocolateProfiterole : Profiterole
     {
         public ChocolateProfiterole(string name)
@@ -35,9 +42,23 @@ namespace AbstractFactory
             Name = name;
         }
     }
+    class RaspberryProfiterole : Profiterole
+    {
+        public RaspberryProfiterole(string name)
+        {
+            Name = name;
+        }
+    }
     class FrenchMuffin : Muffin
     {
         public FrenchMuffin(string name)
+        {
+            Name = name;
+        }
+    }
+    class StrawberryMuffin : Muffin
+    {
+        public StrawberryMuffin(string name)
         {
             Name = name;
         }

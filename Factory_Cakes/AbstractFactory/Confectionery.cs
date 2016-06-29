@@ -40,4 +40,32 @@ namespace AbstractFactory
             return profiteroles;
         }
     }
+
+    class NewConfectionery : IConfectionery
+    {
+        public Cake MakeCake()
+        {
+            return new Cheesecake("a wonderful Prague Cake");
+        }
+
+        public List<Muffin> MakeMuffins(int number)
+        {
+            List<Muffin> muffins = new List<Muffin>();
+            for (int i = 0; i < number; i++)
+            {
+                muffins.Add(new FrenchMuffin(String.Format("a lovelybeautiful Strawberry Muffin {0}", i + 1)));
+            }
+            return muffins;
+        }
+
+        public List<Profiterole> MakeProfiteroles(int number)
+        {
+            List<Profiterole> profiteroles = new List<Profiterole>();
+            for (int i = 0; i < number; i++)
+            {
+                profiteroles.Add(new ChocolateProfiterole(String.Format("a beautiful Raspberry Profiterol {0}", i + 1)));
+            }
+            return profiteroles;
+        }
+    }
 }
