@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Starbuzz_Decorator", "Starb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractFactoryAndFactoryMethod", "Factory_Cakes\AbstractFactory\AbstractFactoryAndFactoryMethod.csproj", "{92BC0D7C-47C4-41FB-93F5-E434F9475F9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionMapper", "TransactionMapper\TransactionMapper.csproj", "{FE832A40-96B5-4740-83F6-CB1999B7991B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{92BC0D7C-47C4-41FB-93F5-E434F9475F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92BC0D7C-47C4-41FB-93F5-E434F9475F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92BC0D7C-47C4-41FB-93F5-E434F9475F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE832A40-96B5-4740-83F6-CB1999B7991B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE832A40-96B5-4740-83F6-CB1999B7991B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE832A40-96B5-4740-83F6-CB1999B7991B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE832A40-96B5-4740-83F6-CB1999B7991B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
