@@ -24,6 +24,10 @@ namespace Starbuzz_Decorator
             beverage3 = new Mocha(beverage3);
             beverage3 = new Whip(beverage3);
             Console.WriteLine(beverage3.Description + " $" + beverage3.cost());
+
+            Tea tea = new EarlGreyTea();
+            Beverage beverage4 = new TeaAdapter(tea);
+            Console.WriteLine(beverage4.Description + " $" + beverage4.cost());
         }
     }
 }
