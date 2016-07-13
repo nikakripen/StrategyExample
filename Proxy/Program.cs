@@ -62,24 +62,21 @@ namespace Proxy
 
     class BookStoreProxy : IBook
     {
-        private List<Page> _pages;
+        private Dictionary<int,Page> _pages;
         private BookStore _bookStore;
-        string _name;
-
+        
         public BookStoreProxy(string name)
         {
-            _name = name;
-            _pages = new List<Page>();
+            _bookStore = new BookStore(name);
+            _pages = new Dictionary<int, Page>();
         }
         public Page GetPage(int number)
         {
-            Page page = _pages.FirstOrDefault(p => p.Number == number);
-            if (page == null)
+            Page page; 
+            if (_pages.TryGetValue(number, out page) == false)
             {
-                if (_bookStore == null)
-                    _bookStore = new BookStore(_name);
                 page = _bookStore.GetPage(number);
-                _pages.Add(page);
+                _pages.Add(page.Number, page);
             }
             return page;
         }

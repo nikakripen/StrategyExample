@@ -70,7 +70,9 @@ namespace Command
 
         public void Undo()
         {
-            foreach (ICommand c in _commands)
+            //var undoCommands = new List<ICommand>(_commands);
+            //undoCommands.Reverse();
+            foreach (ICommand c in _commands.ToArray().Reverse())
                 c.Undo();
         }
     }

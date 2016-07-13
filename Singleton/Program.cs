@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using Microsoft.Practices.Unity;
 
 namespace Singleton
 { 
@@ -27,7 +28,17 @@ namespace Singleton
                 Console.WriteLine("Dispatch Request to: " + server);
             }
 
-           Console.ReadKey();
+            var uc = new UnityContainer();
+            uc.RegisterType<Random>(
+                new ContainerControlledLifetimeManager(),
+                new InjectionConstructor());
+            var svc = uc.Resolve<NewSingleton>();
+            var svc2 = uc.Resolve<NewSingleton>();
+            Console.WriteLine(
+                ReferenceEquals(svc.Random, svc2.Random));
+
+
+            Console.ReadKey();
         }
     }
 
